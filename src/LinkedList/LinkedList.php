@@ -29,4 +29,18 @@ class LinkedList
             $this->head = $newNode;
         }
     }
+
+    public function insertAtFront($data) : void
+    {
+        $newNode = new ListNode($data);
+
+        if($this->head) {
+            // head assigning to the newNode->next
+            $newNode->next = $this->head;
+            // New head is beginning from newNode
+            $this->head = $newNode;
+        } else {
+            $this->head = $newNode;
+        }
+    }
 }

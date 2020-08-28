@@ -21,4 +21,21 @@ class LinkedListTest extends TestCase
 
         $this->assertNull($thirdNode->next);
     }
+
+    public function testInsertAtFront()
+    {
+        $linkedList = new LinkedList();
+
+        $linkedList->insertAtFront(1);
+        $linkedList->insertAtFront(2);
+        $linkedList->insertAtFront(3);
+
+        $this->assertEquals(3, $linkedList->head->data);
+        $secondNode = $linkedList->head->next;
+        $this->assertEquals(2, $secondNode->data);
+        $thirdNode = $secondNode->next;
+        $this->assertEquals(1, $thirdNode->data);
+
+        $this->assertNull($thirdNode->next);
+    }
 }
