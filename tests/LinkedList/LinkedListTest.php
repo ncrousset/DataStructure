@@ -5,11 +5,20 @@ use PHPUnit\Framework\TestCase;
 
 class LinkedListTest extends TestCase
 {
-    public function testOk()
+    public function testInsertAtBack()
     {
-        $instace = new LinkedList();
+        $linkedList = new LinkedList();
 
+        $linkedList->insertAtBack(1);
+        $linkedList->insertAtBack(2);
+        $linkedList->insertAtBack(3);
 
-        $this->assertTrue(true);
+        $this->assertEquals(1, $linkedList->head->data);
+        $secondNode = $linkedList->head->next;
+        $this->assertEquals(2, $secondNode->data);
+        $thirdNode = $secondNode->next;
+        $this->assertEquals(3, $thirdNode->data);
+
+        $this->assertNull($thirdNode->next);
     }
 }
