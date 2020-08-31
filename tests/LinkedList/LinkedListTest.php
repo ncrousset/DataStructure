@@ -38,4 +38,16 @@ class LinkedListTest extends TestCase
 
         $this->assertNull($thirdNode->next);
     }
+
+    public function testFindData()
+    {
+        $linkedList = new LinkedList();
+        $this->assertNull($linkedList->findData(1));
+        $linkedList->insertAtFront(3);
+        $linkedList->insertAtFront(4);
+        $linkedList->insertAtFront(5);
+        $linkedList->insertAtFront(9);
+        $this->assertEquals(3, $linkedList->findData(3)->data);
+        $this->assertNull($linkedList->findData(10));
+    }
 }

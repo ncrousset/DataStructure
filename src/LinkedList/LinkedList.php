@@ -13,6 +13,18 @@ class LinkedList
         $this->head = null;
     }
 
+    public function findData($data)
+    {
+        $node = null;
+        $currentNode = $this->head;
+
+        while ($currentNode->data != $data && $currentNode != null) {
+            $currentNode = $currentNode->next;
+        }
+
+        return $currentNode;
+    }
+
     public function insertAtBack($data) : void
     {
         $newNode = new ListNode($data);
@@ -43,4 +55,6 @@ class LinkedList
             $this->head = $newNode;
         }
     }
+
+
 }
