@@ -3,13 +3,16 @@
 namespace App\LinkedList;
 
 use App\LinkedList\ListNode;
+use phpDocumentor\Reflection\Types\Self_;
+use phpDocumentor\Reflection\Types\Void_;
 
 class LinkedList
 {
 
     public $head;
 
-    public function __construct() {
+    public function __construct()
+    {
         $this->head = null;
     }
 
@@ -25,14 +28,14 @@ class LinkedList
         return $currentNode;
     }
 
-    public function insertAtBack($data) : void
+    public function insertAtBack($data): void
     {
         $newNode = new ListNode($data);
 
-        if($this->head) {
+        if ($this->head) {
             //Finding last node
             $currentNode = $this->head;
-            while($currentNode->next != null) {
+            while ($currentNode->next != null) {
                 $currentNode = $currentNode->next;
             }
             //Add node to the lastNode' next
@@ -42,11 +45,11 @@ class LinkedList
         }
     }
 
-    public function insertAtFront($data) : void
+    public function insertAtFront($data): void
     {
         $newNode = new ListNode($data);
 
-        if($this->head) {
+        if ($this->head) {
             // head assigning to the newNode->next
             $newNode->next = $this->head;
             // New head is beginning from newNode
@@ -56,5 +59,11 @@ class LinkedList
         }
     }
 
+    public function shift() : void
+    {
+        if($this->head !== null) {
+            $this->head = $this->head->next;
+        }
+    }
 
 }

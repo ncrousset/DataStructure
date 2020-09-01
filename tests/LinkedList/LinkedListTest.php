@@ -47,7 +47,27 @@ class LinkedListTest extends TestCase
         $linkedList->insertAtFront(4);
         $linkedList->insertAtFront(5);
         $linkedList->insertAtFront(9);
-        $this->assertEquals(3, $linkedList->findData(3)->data);
+
         $this->assertNull($linkedList->findData(10));
+    }
+
+    public function testShift()
+    {
+        $linkedList = new LinkedList();
+        $linkedList->insertAtBack(1);
+        $linkedList->insertAtBack(2);
+
+        $linkedList->insertAtBack(3);
+        $linkedList->insertAtBack(4);
+
+        $linkedList->shift();
+        $this->assertEquals(2, $linkedList->head->data);
+        $linkedList->shift();
+        $this->assertEquals(3, $linkedList->head->data);
+
+        $linkedList2 = new LinkedList();
+        $linkedList2->shift();
+
+        $this->assertNull($linkedList2->head);
     }
 }
