@@ -59,6 +59,9 @@ class LinkedList
         }
     }
 
+    /**
+     * delete the  first node of list
+     */
     public function shift() : void
     {
         if($this->head !== null) {
