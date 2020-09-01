@@ -45,4 +45,12 @@ class DoublyLinkedList
             $currentNode = null;
         }
     }
+
+    public function next() : void
+    {
+        if($this->head !=  null && $this->head->next != null) {
+            $this->head = $this->head->next;
+        }
+    }
+
 }
