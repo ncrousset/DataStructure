@@ -59,4 +59,26 @@ class DoublyLinkedListTest extends TestCase
         $doublyLinkedList->next();
         $this->assertEquals(9, $doublyLinkedList->head->data);
     }
+
+    public function testPrev()
+    {
+        $doublyLinkedList = new DoublyLinkedList();
+
+        $doublyLinkedList->push(10);
+        $doublyLinkedList->push(3);
+        $doublyLinkedList->push(9);
+
+        $doublyLinkedList->prev(); // The head not move becauce the head is the first node.
+        $this->assertEquals(10, $doublyLinkedList->head->data);
+
+        $doublyLinkedList->next(); // Move to next node "3"
+        $doublyLinkedList->prev(); // Move to back
+        $this->assertEquals(10, $doublyLinkedList->head->data); // value 10
+
+        $doublyLinkedList->next();// Move to next node "3"
+        $doublyLinkedList->next();// Move to next node "9"
+        $doublyLinkedList->prev();
+
+        $this->assertEquals(3, $doublyLinkedList->head->data);
+    }
 }

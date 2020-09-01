@@ -53,4 +53,11 @@ class DoublyLinkedList
         }
     }
 
+    public function prev() : void
+    {
+        if($this->head != null && $this->head->back != null) {
+            $this->head = $this->head->back;
+        }
+    }
+
 }
