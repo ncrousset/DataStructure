@@ -81,4 +81,27 @@ class DoublyLinkedListTest extends TestCase
 
         $this->assertEquals(3, $doublyLinkedList->head->data);
     }
+
+    public function testShift()
+    {
+        $doublyLinkedList = new DoublyLinkedList();
+
+        $doublyLinkedList->push(10);
+        $doublyLinkedList->push(3);
+        $doublyLinkedList->push(9);
+
+        $doublyLinkedList->shift();
+
+        $this->assertEquals(3, $doublyLinkedList->head->data);
+        $this->assertNull($doublyLinkedList->head->back);
+
+        $doublyLinkedList->shift();
+        $this->assertEquals(9, $doublyLinkedList->head->data);
+        $this->assertNull($doublyLinkedList->head->back);
+
+        $doublyLinkedList->shift();
+        $this->assertNull($doublyLinkedList->head);
+
+
+    }
 }

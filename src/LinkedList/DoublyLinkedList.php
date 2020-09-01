@@ -60,4 +60,21 @@ class DoublyLinkedList
         }
     }
 
+    /**
+     * Remove a node from the beginning of the doubly linked list
+     */
+    public function shift() : void
+    {
+        if($this->head != null) {
+            if($this->head->next != null) {
+                $nextNode = $this->head->next;
+                $nextNode->back = null;
+
+                $this->head = $nextNode;
+            } else {
+                $this->head = null;
+            }
+        }
+    }
+
 }
