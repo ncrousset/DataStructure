@@ -3,8 +3,6 @@
 namespace App\LinkedList;
 
 use App\LinkedList\ListNode;
-use phpDocumentor\Reflection\Types\Self_;
-use phpDocumentor\Reflection\Types\Void_;
 
 class LinkedList
 {
