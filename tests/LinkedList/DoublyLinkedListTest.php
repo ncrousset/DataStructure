@@ -21,4 +21,25 @@ class DoublyLinkedListTest extends TestCase
         $this->assertEquals(10, $head->back->data);
 
     }
+
+    public function testPop()
+    {
+        $doublyLinkedList = new DoublyLinkedList();
+
+        $doublyLinkedList->push(10);
+        $doublyLinkedList->push(3);
+        $doublyLinkedList->push(9);
+
+        $doublyLinkedList->pop();
+
+        $head = $doublyLinkedList->head;
+
+
+        $this->assertEquals(10, $head->data);
+        $head = $head->next;
+        $this->assertEquals(3, $head->data);
+        $head = $head->next;
+        $this->assertNull($head);
+
+    }
 }

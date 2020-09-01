@@ -25,10 +25,24 @@ class DoublyLinkedList
                 $currentNode = $currentNode->next;
             }
 
-            $node->back = $currentNode;
+            $node->back = $currentNode; // assign bback head to back
             $currentNode->next = $node;
         } else {
             $this->head = $node;
+        }
+    }
+
+    public function pop() : void
+    {
+        if($this->head != null) {
+            $currentNode = $this->head;
+
+            while($currentNode->next != null) {
+                $currentNode = $currentNode->next;
+            }
+
+            $currentNode->back->next = null;
+            $currentNode = null;
         }
     }
 }
